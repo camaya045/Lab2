@@ -2,8 +2,8 @@
 
 #flex-section1 ul {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	/* equal space between items and at the ends */
+	justify-content: space-evenly;
 }
 
 /* end Flexbox Part 1 */
@@ -49,11 +49,20 @@
 /* Flexbox Part 3 */
 
 #flex-section3 .box {
-
+	/* center the card both horizontally and vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #flex-section3 .tags ul {
-
+	/* make list behave like a row of tags */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 /* end Flexbox Part 3 */
@@ -62,7 +71,10 @@
 /* Grid Part 1 */
 
 #grid-section1 .grid {
-
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 100px;
+	gap: 20px;
 }
 
 /* end Grid Part 1 */
@@ -71,11 +83,17 @@
 /* Grid Part 2 */
 
 #grid-section2 .gridboxblue {
-
+	/* place blue box and float above red */
+	grid-column: 2;
+	grid-row: 1;
+	z-index: 2;
 }
 
 #grid-section2 .gridboxred {
-
+	/* position red box underneath blue */
+	grid-column: 2;
+	grid-row: 2;
+	z-index: 1;
 }
 
 /* end Grid Part 2 */
@@ -84,23 +102,32 @@
 /* Grid Part 3 */
 
 #grid-section3 .grid {
-
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 100px 300px 100px;
+	gap: 10px;
 }
 
 #grid-section3 .box1 {
-
+	/* span the first row across both columns */
+	grid-column: 1 / -1;
+	grid-row: 1;
 }
 
 #grid-section3 .box2 {
-
+	grid-column: 1;
+	grid-row: 2;
 }
 
 #grid-section3 .box3 {
-
+	grid-column: 2;
+	grid-row: 2;
 }
 
 #grid-section3 .box4 {
-
+	/* span the last row across both columns */
+	grid-column: 1 / -1;
+	grid-row: 3;
 }
 
 /* end Grid Part 3 */
@@ -114,15 +141,15 @@
 	color: #000;
 	padding: 20px;
 	text-decoration: none;
-
-
+	/* transition to handle hover & un-hover durations */
+	transition: background-color 3s, color 3s;
 }
 
 #transition-section .box a:hover {
 	background-color: #cc0000;
 	color: #fff;
-
-
+	/* shorten transition while hovering */
+	transition-duration: .5s;
 }
 
 /* end Transition Part */
